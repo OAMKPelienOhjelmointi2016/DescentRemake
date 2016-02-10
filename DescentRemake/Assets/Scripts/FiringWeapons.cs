@@ -25,6 +25,8 @@ public class FiringWeapons : MonoBehaviour {
     private string itemname;
     private bool autofire;
 
+    private WeaponSoundEffects weaponSoundEffects;
+
 	// Use this for initialization
 	void Start () {
         missilepoint = this.transform.Find("MissilePoint").transform;
@@ -40,6 +42,8 @@ public class FiringWeapons : MonoBehaviour {
         missilerate = 0.5f;
         itemrate = 1.0f;
         autofire = false;
+
+        weaponSoundEffects = GetComponent<WeaponSoundEffects>();
     }
 	
 	// Update is called once per frame
@@ -48,6 +52,7 @@ public class FiringWeapons : MonoBehaviour {
         {
             Instantiate(bullet, bulletpointleft.position, bulletpointleft.rotation);
             Instantiate(bullet, bulletpointright.position, bulletpointright.rotation);
+            weaponSoundEffects.PlayLaserSoundEffect();
             nextfire = Time.time + firerate;
         }
     }
@@ -65,6 +70,7 @@ public class FiringWeapons : MonoBehaviour {
             if (firemode == "standard") {
                 Instantiate(bullet, bulletpointleft.position, bulletpointleft.rotation);
                 Instantiate(bullet, bulletpointright.position, bulletpointright.rotation);
+                weaponSoundEffects.PlayLaserSoundEffect();
                 nextfire = Time.time + firerate;
             }
             else if (firemode == "triple")
@@ -72,6 +78,7 @@ public class FiringWeapons : MonoBehaviour {
                 Instantiate(bullet, bulletpointleft.position, bulletpointleft.rotation);
                 Instantiate(bullet, bulletpointright.position, bulletpointright.rotation);
                 Instantiate(bullet, bulletpointupper.position, bulletpointupper.rotation);
+                weaponSoundEffects.PlayLaserSoundEffect();
                 nextfire = Time.time + firerate;
             }
             else if (firemode == "auto")
@@ -104,6 +111,7 @@ public class FiringWeapons : MonoBehaviour {
         if (Time.time > nextmissile)
         {
             Instantiate(missile, missilepoint.position, missilepoint.rotation);
+            weaponSoundEffects.PlayMissileSoundEffect();
             nextmissile = Time.time + missilerate;
         }
     }

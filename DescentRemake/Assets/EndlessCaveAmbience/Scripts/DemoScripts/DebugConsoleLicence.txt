@@ -1,0 +1,11 @@
+DebugConsole.cs is licensed CC BY SA 3.0 
+http://creativecommons.org/licenses/by-sa/3.0/
+
+Class for handling multi-line, multi-color debugging messages.
+Original Author: Jeremy Hollingsworth
+Based On: Version 1.2.1 Mar 02, 2006
+
+Modified: Simon Waite
+Date: 22 Feb 2007
+Modified: Shinsuke Sugita
+Date: 1 Dec 2015
