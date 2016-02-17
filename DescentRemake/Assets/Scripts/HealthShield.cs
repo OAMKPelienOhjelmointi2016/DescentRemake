@@ -16,12 +16,15 @@ public class HealthShield : MonoBehaviour
     public int remainingDmg;
     public Text shieldText;
     public Text healthText;
+    public TextMesh stext;
+    public TextMesh htext;
 
     // Use this for initialization
     void Start()
     {
-        health = maxHealth;
-        shield = maxShield;
+        /*health = maxHealth;
+        shield = maxShield;*/
+  
     }
 
     // Update is called once per frame
@@ -42,9 +45,16 @@ public class HealthShield : MonoBehaviour
         {
             health = 0;
         }
-        
-        shieldText.text = "Shield: " + shield;
-        healthText.text = "Health: " + health;
+
+		if (shieldText != null && healthText != null)
+        {
+            shieldText.text = "Shield: " + shield;
+            healthText.text = "Health: " + health;
+        }
+		if (htext != null && stext != null) {
+			htext.text = "HULL: " + health;
+			stext.text = "SHIELD: " + shield;
+		}
     }
 
     // Heal function
@@ -77,6 +87,7 @@ public class HealthShield : MonoBehaviour
     }
 
     // Call when taking damage
+    [PunRPC]
     public void takeDmg(int dmgTaken)
     {
         shieldRegenIsEnabled = true;

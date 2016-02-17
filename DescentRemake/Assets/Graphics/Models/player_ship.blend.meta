@@ -21,6 +21,16 @@ ModelImporter:
     100026: wingHole
     100028: wingHoles
     100030: hull_001
+    100032: backEngHolders
+    100034: backHoles
+    100036: bigEngine
+    100038: bigEngine2
+    100040: bow
+    100042: frameShape
+    100044: frameShapeSides
+    100046: smallEngine
+    100048: window
+    100050: windowFrame
     400000: backballs
     400002: cockpit
     400004: Cube
@@ -37,6 +47,16 @@ ModelImporter:
     400026: wingHole
     400028: wingHoles
     400030: hull_001
+    400032: backEngHolders
+    400034: backHoles
+    400036: bigEngine
+    400038: bigEngine2
+    400040: bow
+    400042: frameShape
+    400044: frameShapeSides
+    400046: smallEngine
+    400048: window
+    400050: windowFrame
     2300000: backballs
     2300002: cockpit
     2300004: Cube
@@ -52,6 +72,16 @@ ModelImporter:
     2300024: wingHole
     2300026: wingHoles
     2300028: hull_001
+    2300030: backEngHolders
+    2300032: backHoles
+    2300034: bigEngine
+    2300036: bigEngine2
+    2300038: bow
+    2300040: frameShape
+    2300042: frameShapeSides
+    2300044: smallEngine
+    2300046: window
+    2300048: windowFrame
     3300000: backballs
     3300002: cockpit
     3300004: Cube
@@ -67,6 +97,16 @@ ModelImporter:
     3300024: wingHole
     3300026: wingHoles
     3300028: hull_001
+    3300030: backEngHolders
+    3300032: backHoles
+    3300034: bigEngine
+    3300036: bigEngine2
+    3300038: bow
+    3300040: frameShape
+    3300042: frameShapeSides
+    3300044: smallEngine
+    3300046: window
+    3300048: windowFrame
     4300000: cockpit
     4300002: hull
     4300004: Cube
@@ -82,6 +122,16 @@ ModelImporter:
     4300024: wingHole
     4300026: wingHoles
     4300028: hull_001
+    4300030: smallEngine
+    4300032: bigEngine2
+    4300034: bigEngine
+    4300036: bow
+    4300038: frameShape
+    4300040: frameShapeSides
+    4300042: window
+    4300044: windowFrame
+    4300046: backHoles
+    4300048: backEngHolders
     7400000: Default Take
     9500000: //RootNode
   materials:

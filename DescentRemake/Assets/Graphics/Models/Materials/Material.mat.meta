@@ -1,19 +1,37 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
-guid: 2378a98892cf80d4d9130f382f9b9b92
 <<<<<<< HEAD
-timeCreated: 1453978375
-=======
-guid: 4e3c9d82f5c6a66428479b90740f3412
-timeCreated: 1454398011
->>>>>>> 14c37d4c3d1f922f6ed298dee484b5ae84a57ac8
-=======
+guid: 2378a98892cf80d4d9130f382f9b9b92
 timeCreated: 1453974686
 =======
 guid: 4e3c9d82f5c6a66428479b90740f3412
 timeCreated: 1454398011
 >>>>>>> develop
->>>>>>> player-ship-exterior-38
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+guid: 4e3c9d82f5c6a66428479b90740f3412
+timeCreated: 1454398011
+=======
+guid: 2378a98892cf80d4d9130f382f9b9b92
+timeCreated: 1453978375
+>>>>>>> base-exterior-textures-80-merge
+=======
+guid: 2378a98892cf80d4d9130f382f9b9b92
+timeCreated: 1453978375
+=======
+guid: 2378a98892cf80d4d9130f382f9b9b92
+timeCreated: 1453978375
+>>>>>>> c563a6babdab39b413307423aab89b6217a3a7fe
+=======
+guid: 4e3c9d82f5c6a66428479b90740f3412
+timeCreated: 1454398011
+>>>>>>> 14c37d4c3d1f922f6ed298dee484b5ae84a57ac8
+<<<<<<< HEAD
+>>>>>>> d0faec74324bc193f1fdeacf1a28bde59bdc34e4
+=======
+>>>>>>> c563a6babdab39b413307423aab89b6217a3a7fe
+>>>>>>> 009e159c2b554efadc3c1307c775631e48396bb1
 licenseType: Free
 NativeFormatImporter:
   userData: 
