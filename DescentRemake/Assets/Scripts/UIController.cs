@@ -7,11 +7,12 @@ public class UIController : MonoBehaviour {
 	//Some UI texts are text meshes. They will later all be converted into Ui-texts
 	//Some icons are sprites. They will later be converted into UI-images.
 
-	public TextMesh shieldText;
-	public TextMesh hullText;
+	public Text shieldText;
+	public Text hullText;
 
-	public SpriteRenderer missileIcon;
-	public TextMesh missileCountText;
+	public Image missileIcon;
+	public Text missileCountText;
+	public Text missileTypeText;
 
 	public GameObject shieldBar;
 	public GameObject hullBar;
@@ -23,10 +24,6 @@ public class UIController : MonoBehaviour {
 	public int debugSetShields = 100; 
 	public int debugSetHull = 100;
 	public int debugSetMissiles = 5;
-
-	//These enumerators will probably find a use later
-	//enum MissileTypes { CONCUSSION, HOMING, SPLIT };
-	//enum Meters { SHIELD, HEALTH };
 
 	void Start() {
 		SetShields(100);
@@ -59,7 +56,6 @@ public class UIController : MonoBehaviour {
 
 	public void SetMissileCount(int _count) {
 		int count = nonNegativeInt(_count);
-
 		if (missileCountText != null) {
 			missileCountText.text = "x"+ count;
 		}
