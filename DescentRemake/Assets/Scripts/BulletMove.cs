@@ -12,7 +12,10 @@ public class BulletMove : MonoBehaviour {
     private float speed = 1000f;
     private float radius = 0.35f;
     private float power = 50.0f;
+    private bool enemyshooter = false;
     public int bulletDamage = 5;
+    public GameObject firedPlayer;
+
     public GameObject firedPlayer;
 
     // Use this for initialization
@@ -29,6 +32,11 @@ public class BulletMove : MonoBehaviour {
         this.transform.Rotate(0f, 0f, 10f,Space.Self);
 	}
 
+    public void EnemyShotThisProjectile()
+    {
+        enemyshooter = true;
+    }
+
     void OnTriggerEnter(Collider col)
     {
 
@@ -36,7 +44,7 @@ public class BulletMove : MonoBehaviour {
 
         HealthShield enemy = col.GetComponent<HealthShield>();
 
-        if (enemy != null) {
+        /*if (enemy != null) {
 
 
             if (col.tag == "Player")
@@ -45,13 +53,13 @@ public class BulletMove : MonoBehaviour {
             }
             else
             {
-                enemy.takeDmg(bulletDamage);
+                
             }
             
         }
         else
-            Debug.Log("collisiontriggered");
-        if (col.gameObject.tag != "Bullet" && col.gameObject.tag != "Player") {
+            Debug.Log("collisiontriggered");*/
+        if (col.gameObject.tag != "Bullet") {
         Vector3 explosionPos = this.transform.position;
         Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
         foreach (Collider hit in colliders)
@@ -65,7 +73,7 @@ public class BulletMove : MonoBehaviour {
             Object bulletHit = Instantiate(bullethiteffect, this.transform.position, this.transform.rotation);
             Destroy(this.gameObject);
             Destroy(bulletHit, 1.0f);
-    }
-        Destroy(this.gameObject);
+            enemy.takeDmg(bulletDamage);
+        }
     }
 }
