@@ -19,33 +19,15 @@
 
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 DescentRemake/Assets/Metal textures pack/
 DescentRemake/Assets/Elementals/
-DescentRemake/Assets/Metal textures pack.meta
-DescentRemake/Assets/Materials/lava_texture__2560_x_1440__by_mysteriousdove-d88wa0p.mat
-DescentRemake/Assets/Materials/lava_texture__2560_x_1440__by_mysteriousdove-d88wa0p.mat.meta
-DescentRemake/Assets/Elementals.meta
-=======
-DescentRemake/ProjectSettings/
 DescentRemake/Assets/Metal textures pack/
 DescentRemake/Assets/Stone textures pack/
-
-DescentRemake/Assets/Stone textures pack.meta
 <<<<<<< HEAD
-DescentRemake/Assets/Metal textures pack.meta
-=======
-
-
->>>>>>> e3683f6d7411ebfed8cd9ed9ef75cd09d3d2a03f
->>>>>>> bb2333f6f9795c1be749ff42cd24ba659ec8333b
-DescentRemake/Assets/Graphics/Models/Materials/Material_001.mat
-=======
-DescentRemake/ProjectSettings/
-DescentRemake/Assets/Metal textures pack/
-DescentRemake/Assets/Stone textures pack/
 DescentRemake/Assets/Metal textures pack.meta
 DescentRemake/Assets/Stone textures pack.meta
 >>>>>>> upstream/develop
 DescentRemake/Assets/Laser_construction_kit/
+=======
+>>>>>>> 9efe3f59e1fd041d28d57984ba8e995adbf39f37
