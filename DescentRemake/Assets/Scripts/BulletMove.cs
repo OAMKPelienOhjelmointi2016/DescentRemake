@@ -16,8 +16,6 @@ public class BulletMove : MonoBehaviour {
     public int bulletDamage = 5;
     public GameObject firedPlayer;
 
-    public GameObject firedPlayer;
-
     // Use this for initialization
     void Start () {
         direction = this.transform.forward;
