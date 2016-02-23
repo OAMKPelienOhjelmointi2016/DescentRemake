@@ -49,6 +49,9 @@ ModelImporter:
     100082: semicircleRoom_002
     100084: semicircleRoom_003
     100086: Cube_000
+    100088: Cube_005
+    100090: Cube_006
+    100092: NurbsPath_000
     400000: BezierCircle
     400002: BezierCircle_001
     400004: Cube
@@ -93,6 +96,9 @@ ModelImporter:
     400082: semicircleRoom_002
     400084: semicircleRoom_003
     400086: Cube_000
+    400088: Cube_005
+    400090: Cube_006
+    400092: NurbsPath_000
     2300000: BezierCircle
     2300002: BezierCircle_001
     2300004: Cube
@@ -136,6 +142,9 @@ ModelImporter:
     2300080: semicircleRoom_002
     2300082: semicircleRoom_003
     2300084: Cube_000
+    2300086: Cube_005
+    2300088: Cube_006
+    2300090: NurbsPath_000
     3300000: BezierCircle
     3300002: BezierCircle_001
     3300004: Cube
@@ -179,6 +188,9 @@ ModelImporter:
     3300080: semicircleRoom_002
     3300082: semicircleRoom_003
     3300084: Cube_000
+    3300086: Cube_005
+    3300088: Cube_006
+    3300090: NurbsPath_000
     4300000: BezierCircle_001
     4300002: Cube
     4300004: Torus
@@ -222,6 +234,9 @@ ModelImporter:
     4300080: semicircleRoom_002
     4300082: semicircleRoom_001
     4300084: Cube_000
+    4300086: Cube_006
+    4300088: Cube_005
+    4300090: NurbsPath_000
     7400000: Default Take
     9500000: //RootNode
   materials:

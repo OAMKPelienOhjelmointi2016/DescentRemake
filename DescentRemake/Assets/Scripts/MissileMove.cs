@@ -15,11 +15,13 @@ public class MissileMove : MonoBehaviour
     private GameObject instantiatedObj;
     public int missileDamage = 20;
 
+    public GameObject firedPlayer;
+
     void Start()
     {
         direction = this.transform.forward;
         player = GameObject.FindGameObjectWithTag("Player");
-        //this.GetComponent<Rigidbody>().velocity = player.GetComponent<Rigidbody>().velocity;
+        this.GetComponent<Rigidbody>().velocity = player.GetComponent<Rigidbody>().velocity;
         GameObject.Destroy(this.gameObject, 10f);
     }
 
@@ -27,19 +29,17 @@ public class MissileMove : MonoBehaviour
     {
         if (speed < 50)
         {
-            speed+=2.5f;
+            speed += 2.5f;
         }
         this.GetComponent<Rigidbody>().AddForce(direction * speed);
     }
 
     void OnTriggerEnter(Collider col)
     {
-
         HealthShield enemy = col.GetComponent<HealthShield>();
 
-        if (enemy != null) {
-
-
+        if (enemy != null)
+        {
             if (col.tag == "Player")
             {
                 enemy.GetComponent<PhotonView>().RPC("takeDmg", PhotonTargets.AllBuffered, missileDamage);
@@ -48,8 +48,9 @@ public class MissileMove : MonoBehaviour
             {
                 enemy.takeDmg(missileDamage);
             }
+        }
 
-        if (col.gameObject.tag != "Bullet" && col.gameObject.tag != "Player")
+        if (col.gameObject.tag != "Bullet")
         {
             Vector3 explosionPos = this.transform.position;
             Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
@@ -60,10 +61,12 @@ public class MissileMove : MonoBehaviour
                 if (rb != null)
                     rb.AddExplosionForce(power, explosionPos, radius, 3.0f, ForceMode.Force);
             }
-            instantiatedObj = (GameObject) Instantiate(missilexplosion, this.transform.position, this.transform.rotation);
+            instantiatedObj = (GameObject)Instantiate(missilexplosion, this.transform.position, this.transform.rotation);
             Destroy(this.gameObject);
 
             Destroy(instantiatedObj, 1.8f);
         }
     }
 }
+
+

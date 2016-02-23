@@ -8,6 +8,8 @@ public class FiringWeapons : MonoBehaviour {
     public GameObject flare;
     public GameObject emp;
     public GameObject decoy;
+    private GameObject instanceofcreatedprojectileleft;
+    private GameObject instanceofcreatedprojectileright;
     private Transform bulletpointleft;
     private Transform bulletpointright;
     private Transform bulletpointupper;
@@ -24,6 +26,7 @@ public class FiringWeapons : MonoBehaviour {
     private string firemode;
     private string itemname;
     private bool autofire;
+    private bool isEnemy = false;
 
 	public int hitCount;
 
@@ -42,6 +45,11 @@ public class FiringWeapons : MonoBehaviour {
         missilerate = 0.5f;
         itemrate = 1.0f;
         autofire = false;
+
+        if(this.gameObject.tag == "Turret")
+        {
+            isEnemy = true;
+        }
     }
 	
 	// Update is called once per frame
@@ -74,8 +82,13 @@ public class FiringWeapons : MonoBehaviour {
     {
         if (Time.time > nextfire) {
             if (firemode == "standard") {
-                Instantiate(bullet, bulletpointleft.position, bulletpointleft.rotation);
-                Instantiate(bullet, bulletpointright.position, bulletpointright.rotation);
+                instanceofcreatedprojectileleft = Instantiate(bullet, bulletpointleft.position, bulletpointleft.rotation) as GameObject;
+                instanceofcreatedprojectileright = Instantiate(bullet, bulletpointright.position, bulletpointright.rotation) as GameObject;
+                if (isEnemy)
+                {
+                    instanceofcreatedprojectileleft.GetComponent<BulletMove>().EnemyShotThisProjectile();
+                    instanceofcreatedprojectileright.GetComponent<BulletMove>().EnemyShotThisProjectile();
+                }
                 nextfire = Time.time + firerate;
             }
             else if (firemode == "triple")

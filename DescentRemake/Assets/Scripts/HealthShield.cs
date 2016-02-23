@@ -43,6 +43,10 @@ public class HealthShield : MonoBehaviour
 
         if (health <- 0)
         {
+            if(this.gameObject.tag == "Player")
+            {
+                GameObject.Destroy(this.gameObject);
+            }
             health = 0;
         }
 
