@@ -150,6 +150,12 @@ public class NetworkManager : MonoBehaviour
         SpawnMyPlayer();
     }
 
+	public Vector3 Respawn() {
+		SpawnSpot mySpawnSpot = spawnSpots [Random.Range (0, spawnSpots.Length)];
+		return mySpawnSpot.transform.position;
+	}
+
+
     void SpawnMyPlayer()
     {
 
@@ -168,6 +174,7 @@ public class NetworkManager : MonoBehaviour
         myPlayerGO.GetComponent<NetworkCharacterMovement>().enabled = true;
         myPlayerGO.GetComponent<MouseMovement>().enabled = true;
         myPlayerGO.GetComponent<ChatManager>().enabled = true;
+		myPlayerGO.GetComponent<HealthShield> ().enabled = true;
 
         myPlayerGO.GetComponent<PlayerMovement>().enabled = true;
 
@@ -185,9 +192,6 @@ public class NetworkManager : MonoBehaviour
 
 
         //myPlayerGO.GetComponentInChildren<> ().enabled = true;
-
-
-
     }
 
 

@@ -43,6 +43,12 @@ public class MissileMove : MonoBehaviour
             if (col.tag == "Player")
             {
                 enemy.GetComponent<PhotonView>().RPC("takeDmg", PhotonTargets.AllBuffered, missileDamage);
+                firedPlayer.GetComponent<FiringWeapons>().addHit();
+
+                if (enemy.GetComponent<HealthShield>().health < 0)
+                {
+                    firedPlayer.GetComponent<FiringWeapons>().addKill();
+                }
             }
             else
             {

@@ -27,8 +27,10 @@ public class FiringWeapons : MonoBehaviour {
     private string itemname;
     private bool autofire;
     private bool isEnemy = false;
+    private string url = "http://oamkpo2016.esy.es/kills";
 
-	public int hitCount;
+    public int hitCount = 0;
+	public int killCount = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -69,6 +71,14 @@ public class FiringWeapons : MonoBehaviour {
 
 	public void addHit() {
 		hitCount++;
+	}
+
+	public void addKill() {
+		killCount++;
+		Debug.Log ("Adding kill");
+		GetComponent<ChatManager> ().killStreak (GetComponent<ChatManager> ().username, killCount);
+        StartCoroutine(PostKill());
+        //GetComponent<NetworkCharacterMovement> ().sendKill ();
 	}
 
     public void InitiateStandardShoot(float rateForFire, string modeForFire)
@@ -149,6 +159,20 @@ public class FiringWeapons : MonoBehaviour {
             decoyrotation *= Quaternion.Euler(90, 0, 0);
             Instantiate(decoy, missilepoint.position, decoyrotation);
             nextitem = Time.time + itemrate;
+        }
+    }
+
+    IEnumerator PostKill()
+    {
+        WWWForm wwwForm = new WWWForm();
+        wwwForm.AddField("ID", GetComponent<ChatManager>().id.ToString());
+        wwwForm.AddField("kills", "1");
+        WWW hs_post = new WWW(url, wwwForm);
+
+        yield return hs_post;
+        if (hs_post.error != null)
+        {
+            Debug.Log("Error posting data to database: " + hs_post.error);
         }
     }
 }
