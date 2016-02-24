@@ -40,9 +40,7 @@ public class FiringWeapons : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-                photonView = PhotonView.Get(this);
-
-
+        photonView = PhotonView.Get(this);
 
 
 
@@ -118,12 +116,16 @@ public class FiringWeapons : MonoBehaviour {
     {
         if (Time.time > nextfire) {
             if (firemode == "standard") {
-                //instanceofcreatedprojectileleft = Instantiate(bullet, bulletpointleft.position, bulletpointleft.rotation) as GameObject;
-                //instanceofcreatedprojectileright = Instantiate(bullet, bulletpointright.position, bulletpointright.rotation) as GameObject;
-
-                photonView.RPC("BulletFX", PhotonTargets.All, bulletpointright.position, bulletpointright.rotation);
-                photonView.RPC("BulletFX", PhotonTargets.All, bulletpointleft.position, bulletpointleft.rotation);
-                
+                if (SceneManagerHelper.ActiveSceneName == "SPlevel")
+                {
+                    instanceofcreatedprojectileleft = Instantiate(bullet, bulletpointleft.position, bulletpointleft.rotation) as GameObject;
+                    instanceofcreatedprojectileright = Instantiate(bullet, bulletpointright.position, bulletpointright.rotation) as GameObject;
+                }
+                else
+                {
+                    photonView.RPC("BulletFX", PhotonTargets.All, bulletpointright.position, bulletpointright.rotation);
+                    photonView.RPC("BulletFX", PhotonTargets.All, bulletpointleft.position, bulletpointleft.rotation);
+                }
                 if (isEnemy)
                 {
                     instanceofcreatedprojectileleft.GetComponent<BulletMove>().EnemyShotThisProjectile();
@@ -170,10 +172,17 @@ public class FiringWeapons : MonoBehaviour {
     {
         if (Time.time > nextmissile)
         {
-
-            photonView.RPC("MissileFX", PhotonTargets.All, missilepoint.position, missilepoint.rotation);
-            nextmissile = Time.time + missilerate;
-            addFire(1);
+            if (SceneManagerHelper.ActiveSceneName == "SPlevel")
+            {
+                Instantiate(missile, missilepoint.position, missilepoint.rotation);
+                nextmissile = Time.time + missilerate;
+            }
+            else
+            {
+                photonView.RPC("MissileFX", PhotonTargets.All, missilepoint.position, missilepoint.rotation);
+                nextmissile = Time.time + missilerate;
+                addFire(1);
+            }
         }
     }
 
