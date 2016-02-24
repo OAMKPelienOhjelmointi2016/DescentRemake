@@ -4,9 +4,6 @@ using System.Collections;
 
 public class UIController : MonoBehaviour {
 
-	//Some UI texts are text meshes. They will later all be converted into Ui-texts
-	//Some icons are sprites. They will later be converted into UI-images.
-
 	public Text shieldText;
 	public Text hullText;
 
@@ -20,15 +17,37 @@ public class UIController : MonoBehaviour {
 	public Image weaponIcon;
 	public Text weaponText;
 
+	public Text flareCountText;
+
+	public Text decoyText;
+
 	//These are for debug purposes. These will let you test within the Unity editor whether the UI-indicators work. Delete these later.
-	public int debugSetShields = 100; 
-	public int debugSetHull = 100;
-	public int debugSetMissiles = 5;
+	//public int debugSetShields = 100; 
+	//public int debugSetHull = 100;
+	//public int debugSetMissiles = 5;
 
 	void Start() {
 		SetShields(100);
 		SetHull(100);
 	}
+
+	public void SetFlares(int _amount) {
+		int count = nonNegativeInt(_amount);
+		if (flareCountText != null) {
+			flareCountText.text = "x" + count;
+		}
+	}
+
+	public void SetDecoyState(string _state) {
+		//Whenever the decoy is ready for use, the text should say "READY".
+		//When the decoy has been deployed, the text should say "DEPLOYED"
+		//After the decoy has expired, the text should go back to "READY"
+
+		if (decoyText != null) {
+			decoyText.text = "DECOY:" + _state;
+		}
+	}
+
 
 	public void SetShields(float _percentage) {
 		float percent = nonNegativeFloat(_percentage);
@@ -48,6 +67,7 @@ public class UIController : MonoBehaviour {
 		if (hullText != null) {
 			hullText.text = "HULL:" + percent + "%";
 		}
+
 		if (hullBar != null) {
 			float scale = percent / 100;
 			hullBar.transform.localScale = new Vector3(1, scale, 1);
@@ -57,10 +77,10 @@ public class UIController : MonoBehaviour {
 	public void SetMissileCount(int _count) {
 		int count = nonNegativeInt(_count);
 		if (missileCountText != null) {
-			missileCountText.text = "x"+ count;
+			missileCountText.text = "x" + count;
 		}
 	}
-		
+
 	float nonNegativeFloat(float _floatNumber) {
 		float number = _floatNumber;
 		if (_floatNumber < 0) {
@@ -77,25 +97,10 @@ public class UIController : MonoBehaviour {
 		return number;
 	}
 
-	void Update () {
+	void Update() {
 		//These let you test within Unity editor whether the indicators work. Delete these later.
-		SetShields(debugSetShields);
-		SetHull(debugSetHull);
-		SetMissileCount(debugSetMissiles);
+		//SetShields(debugSetShields);
+		//SetHull(debugSetHull);
+		//SetMissileCount(debugSetMissiles);
 	}
-
-	/*
-	void Awake() {
-		//Transform UIMain = monitorMain.transform.Find("UIMain");
-
-		shieldText = UIMain.Find("ShieldText").GetComponent<TextMesh>();
-		hullText = UIMain.Find("HullText").GetComponent<TextMesh>();
-
-		shieldBar = UIMain.Find("ShieldBar").gameObject;
-		hullBar = UIMain.Find("HullBar").gameObject;
-
-		//Transform UIR1 = monitorMain.transform.Find("MonitorR1").transform.Find("UIR1");
-		//missileCountText = UIR1.transform.Find("MissileCountText").GetComponent<TextMesh>();
-	}
-	*/
 }
