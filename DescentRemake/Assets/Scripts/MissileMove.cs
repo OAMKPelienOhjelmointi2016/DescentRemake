@@ -21,7 +21,7 @@ public class MissileMove : MonoBehaviour
     {
         direction = this.transform.forward;
         player = GameObject.FindGameObjectWithTag("Player");
-        //this.GetComponent<Rigidbody>().velocity = player.GetComponent<Rigidbody>().velocity;
+        this.GetComponent<Rigidbody>().velocity = player.GetComponent<Rigidbody>().velocity;
         GameObject.Destroy(this.gameObject, 10f);
     }
 
@@ -43,6 +43,12 @@ public class MissileMove : MonoBehaviour
             if (col.tag == "Player")
             {
                 enemy.GetComponent<PhotonView>().RPC("takeDmg", PhotonTargets.AllBuffered, missileDamage);
+                firedPlayer.GetComponent<FiringWeapons>().addHit();
+
+                if (enemy.GetComponent<HealthShield>().health < 0)
+                {
+                    firedPlayer.GetComponent<FiringWeapons>().addKill();
+                }
             }
             else
             {

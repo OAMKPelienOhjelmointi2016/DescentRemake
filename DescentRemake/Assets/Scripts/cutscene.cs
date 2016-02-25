@@ -9,6 +9,10 @@ public class cutscene : MonoBehaviour {
     GameObject invisibleWalls;
     GameObject tutorial;
     GameObject crosshair;
+    PlayerMovement movement;
+    MouseMovement mouse_movement;
+    FiringWeapons fireweapons; /* What's the difference between this and Playershoot? */
+    PlayerShoot shootweapons;
     public Camera cockpit;
     public Camera cockpitHUD;
     public Camera camera1;
@@ -17,24 +21,39 @@ public class cutscene : MonoBehaviour {
     IEnumerator routine;
 
 	// Use this for initialization
-	void Start () {
+    void Start()
+    {
+        player = GameObject.Find("Player");
+        player.GetComponent<Animator>().enabled = true;
+        player.GetComponent<Animator>().Play("cutscene", -1, 0f);
+        fireweapons = player.GetComponent<FiringWeapons>();
+        shootweapons = player.GetComponent<PlayerShoot>();
         tutorial = GameObject.Find("Tutorial");
         tutorial.SetActive(false);
         invisibleWalls = GameObject.Find("Invisible_walls");
         invisibleWalls.SetActive(false);
         routine = cutsceneCamera();
         skipText = GameObject.Find("SkipCutscene");
-        player = GameObject.Find("Player");
         spotlight = GameObject.Find("Spotlight");
         crosshair = GameObject.Find("Crosshair");
+        movement = player.GetComponent<PlayerMovement>();
+        mouse_movement = player.GetComponent<MouseMovement>();
         crosshair.SetActive(false);
         StartCoroutine(routine);
+        movement.enabled = false;
+        mouse_movement.enabled = false;
+        fireweapons.enabled = false;
+        shootweapons.enabled = false;
 	}
 
     void Update()
     {
         if(Input.GetKeyDown("space") && !cutsceneFinished)
         {
+            movement.enabled = true;
+            mouse_movement.enabled = true;
+            fireweapons.enabled = true;
+            shootweapons.enabled = true;
             StopCoroutine(routine);
             skipText.SetActive(false);
             player.GetComponent<Animator>().enabled = false;
@@ -83,5 +102,9 @@ public class cutscene : MonoBehaviour {
         skipText.SetActive(false);
         tutorial.SetActive(true);
         crosshair.SetActive(true);
+        movement.enabled = true;
+        mouse_movement.enabled = true;
+        fireweapons.enabled = true;
+        shootweapons.enabled = true;
     }
 }

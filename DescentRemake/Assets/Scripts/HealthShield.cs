@@ -5,9 +5,9 @@ using System.Collections;
 public class HealthShield : MonoBehaviour
 {
 
-    public int health;
+    public int health = 100;
     public int maxHealth = 100;
-    public int shield;
+    public int shield = 100;
     public int maxShield = 100;
     private float dTime = 0;
     private float nextTimeStep = 0;
@@ -22,8 +22,8 @@ public class HealthShield : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        /*health = maxHealth;
-        shield = maxShield;*/
+        health = maxHealth;
+        shield = maxShield;
   
     }
 
@@ -41,11 +41,11 @@ public class HealthShield : MonoBehaviour
             }
         }
 
-        if (health <- 0)
+        if (health <= 0)
         {
             if(this.gameObject.tag == "Player")
             {
-                GameObject.Destroy(this.gameObject);
+                //GameObject.Destroy(this.gameObject);
             }
             health = 0;
         }
@@ -60,6 +60,10 @@ public class HealthShield : MonoBehaviour
 			stext.text = "SHIELD: " + shield;
 		}
     }
+	[PunRPC]
+	public void restoreHealth() {
+		this.health = 100;
+	}
 
     // Heal function
     public void heal(int healDone)

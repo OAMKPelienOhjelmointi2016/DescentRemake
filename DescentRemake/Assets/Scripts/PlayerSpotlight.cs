@@ -5,6 +5,7 @@ public class PlayerSpotlight : MonoBehaviour {
 
     public bool on = false;
     public float battery;
+    public float maxbattery;
     
 
 	// Use this for initialization
@@ -17,7 +18,7 @@ public class PlayerSpotlight : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             on = !on;
 
@@ -25,28 +26,28 @@ public class PlayerSpotlight : MonoBehaviour {
 
         if (on)
         {
-                GetComponent<Light>().enabled = true;
-                battery -= Time.deltaTime;
-                Debug.Log("Battery life: " + battery);
+               GetComponent<Light>().enabled = true;
+                //battery -= Time.deltaTime;
+               // Debug.Log("Battery life: " + battery);
         }
         
-        else if (!on)
+      else if (!on)
         {
             GetComponent<Light>().enabled = false;
-            battery += Time.deltaTime;
-            Debug.Log("Battery life: " + battery);
+            //battery += Time.deltaTime;
+           // Debug.Log("Battery life: " + battery);
         }
 
-        if (battery <= 0)
+        //if (battery <= 0)
         {
-            battery = 0;
-            GetComponent<Light>().enabled = false;
+            //battery = 0;
+            //GetComponent<Light>().enabled = false;
             //on = !on;
         }
 
-        if(battery >= 10)
+        //if(battery >= maxbattery /*10*/)
         {
-            battery = 10;
+            //battery = maxbattery; /*10;*/
 
         }
 
