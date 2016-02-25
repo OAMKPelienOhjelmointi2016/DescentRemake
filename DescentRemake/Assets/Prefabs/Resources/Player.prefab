@@ -784,11 +784,9 @@ GameObject:
   - 114: {fileID: 11452950}
   - 114: {fileID: 11490314}
   - 114: {fileID: 11412506}
-  - 114: {fileID: 11468748}
-  - 114: {fileID: 11414878}
-  - 114: {fileID: 11430538}
   - 82: {fileID: 8203438}
   - 82: {fileID: 8234410}
+  - 114: {fileID: 11439742}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2881,19 +2879,6 @@ MonoBehaviour:
   m_Text: 'DUAL
 
     BLASTERS'
---- !u!114 &11414878
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 191872}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ace67cfc03eb06f49b89c478e3c1ce28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletCountOld: 0
-  bulletCount: 0
 --- !u!114 &11418250
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2934,27 +2919,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crosshairTexture: {fileID: 2800000, guid: 89dffbc272c1fbd44ae6331e52589383, type: 3}
   crosshairScale: 1
---- !u!114 &11430538
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 191872}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9aae003e81c62f140a4a7532bd3f548e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  maxHealth: 100
-  shield: 0
-  maxShield: 100
-  TimeBeforeShieldRegen: 0
-  remainingDmg: 0
-  shieldText: {fileID: 0}
-  healthText: {fileID: 0}
-  stext: {fileID: 0}
-  htext: {fileID: 0}
 --- !u!114 &11435408
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2989,6 +2953,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalSpeed: 4
   verticalSpeed: 4
+--- !u!114 &11439742
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 191872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aae003e81c62f140a4a7532bd3f548e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  maxHealth: 100
+  shield: 100
+  maxShield: 100
+  TimeBeforeShieldRegen: 0
+  remainingDmg: 0
+  shieldText: {fileID: 0}
+  healthText: {fileID: 0}
+  stext: {fileID: 0}
+  htext: {fileID: 0}
 --- !u!114 &11441278
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3068,19 +3053,6 @@ MonoBehaviour:
   rotateSpeed: 80
   maxSpeed: 6
   maxSpeedThrust: 10
---- !u!114 &11468748
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 191872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ced5dadcc464e74891730feed9f2eee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  url: 687474703a2f2f6f616d6b706f323031362e6573792e65732f6c6f67696e3f
-  id: 0
 --- !u!114 &11473580
 MonoBehaviour:
   m_ObjectHideFlags: 1
