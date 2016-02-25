@@ -244,7 +244,6 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4f94d6bf841d86645a9c32c98b2aa2d2, type: 2}
-  m_RootGameObject: {fileID: 1747179407}
   m_IsPrefabParent: 0
 --- !u!1 &1066630525
 GameObject:
@@ -314,7 +313,6 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4f94d6bf841d86645a9c32c98b2aa2d2, type: 2}
-  m_RootGameObject: {fileID: 1066630525}
   m_IsPrefabParent: 0
 --- !u!1 &1604148773
 GameObject:
@@ -497,5 +495,4 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f6670c9f9d7ba24794e140ff2e208d9, type: 2}
-  m_RootGameObject: {fileID: 465039754}
   m_IsPrefabParent: 0
